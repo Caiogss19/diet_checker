@@ -134,8 +134,9 @@ export default function RegisterPage() {
                     style={{
                       padding: '12px 16px', borderRadius: 'var(--radius-sm)', cursor: 'pointer',
                       border: `2px solid ${form.goal === opt.v ? 'var(--accent)' : 'var(--border)'}`,
-                      background: form.goal === opt.v ? 'rgba(200,245,90,0.05)' : 'transparent',
+                      background: form.goal === opt.v ? 'var(--accent-alpha)' : 'transparent',
                       marginBottom: 8, display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                      transition: 'background-color 0.3s ease, border-color 0.3s ease'
                     }}>
                     <span style={{ fontWeight: 500 }}>{opt.label}</span>
                     <span style={{ fontSize: 12, color: 'var(--text-muted)' }}>{opt.desc}</span>

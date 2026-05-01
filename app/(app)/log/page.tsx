@@ -98,9 +98,10 @@ export default function LogPage() {
             className="btn"
             style={{
               justifyContent: 'flex-start',
-              background: mealType === t.v ? 'rgba(200,245,90,0.1)' : 'var(--surface)',
+              background: mealType === t.v ? 'var(--accent-alpha)' : 'var(--surface)',
               border: `2px solid ${mealType === t.v ? 'var(--accent)' : 'var(--border)'}`,
               fontSize: 13,
+              transition: 'background-color 0.3s ease, border-color 0.3s ease'
             }}>
             {t.label}
           </button>
