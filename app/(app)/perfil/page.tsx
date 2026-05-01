@@ -61,7 +61,7 @@ export default function PerfilPage() {
       {!editing ? (
         <>
           <div className="card" style={{ marginBottom: 16 }}>
-            <div style={{ display: 'flex', align: 'center', gap: 16, marginBottom: 16 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
               <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, color: '#0f0f0f', fontWeight: 700, flexShrink: 0 }}>
                 {profile.name?.[0]?.toUpperCase()}
               </div>
