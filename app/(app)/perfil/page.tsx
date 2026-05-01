@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Profile } from '@/types'
 import { createClient } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
+import { useTheme } from '@/components/ThemeProvider'
 
 const ACTIVITY_LABELS: Record<string, string> = {
   sedentary: 'Sedentário', light: 'Levemente ativo', moderate: 'Moderado',
@@ -19,6 +20,7 @@ export default function PerfilPage() {
   const [saving, setSaving] = useState(false)
   const router = useRouter()
   const supabase = createClient()
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     fetch('/api/profile').then(r => r.json()).then(d => {
@@ -102,6 +104,16 @@ export default function PerfilPage() {
             <p style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 10 }}>
               Atividade: {ACTIVITY_LABELS[profile.activity_level]} · {GOAL_LABELS[profile.goal]}
             </p>
+          </div>
+
+          <div className="card" style={{ marginBottom: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <span style={{ fontSize: 20 }}>{theme === 'dark' ? '🌙' : '☀️'}</span>
+              <span style={{ fontWeight: 600 }}>Tema {theme === 'dark' ? 'Escuro' : 'Claro'}</span>
+            </div>
+            <button className="btn btn-ghost" onClick={toggleTheme} style={{ padding: '6px 12px', fontSize: 13 }}>
+              Alternar
+            </button>
           </div>
 
           <button className="btn btn-ghost" onClick={logout} style={{ width: '100%', color: 'var(--danger)', borderColor: 'var(--danger)' }}>
