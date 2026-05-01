@@ -9,10 +9,6 @@ const MEAL_LABELS: Record<string, string> = {
   lanche: '🍎 Lanche',
 }
 
-function formatDate(d: string) {
-  return new Date(d).toLocaleDateString('pt-BR', { weekday: 'short', day: 'numeric', month: 'short' })
-}
-
 export default function HistoricoPage() {
   const [meals, setMeals] = useState<Meal[]>([])
   const [loading, setLoading] = useState(true)

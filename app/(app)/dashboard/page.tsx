@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { createClient } from '@/lib/supabase'
 import { Meal, Profile } from '@/types'
 import Link from 'next/link'
 
@@ -32,7 +31,6 @@ export default function DashboardPage() {
   const [meals, setMeals] = useState<Meal[]>([])
   const [waterMl, setWaterMl] = useState(0)
   const [loading, setLoading] = useState(true)
-  const supabase = createClient()
 
   const today = new Date().toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' })
 
